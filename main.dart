@@ -39,7 +39,7 @@ class LinkedList {
     }
     lastNode.next = newNode;
   }
-
+ 
   // Function to print the linked list
   void printList() {
   if (head == null) {
