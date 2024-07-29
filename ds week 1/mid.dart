@@ -45,6 +45,17 @@ class LinkedList{
     }
     return slow;
   }
+  void printList(){
+    if(head == null){
+       print("The linked list is empty.");
+    return;
+    }
+    Node? currentNode = head;
+    while (currentNode !=null) {
+      print(currentNode.data);
+      currentNode= currentNode.next;
+    }
+  }
 }
 void main(){
   LinkedList linkedList = LinkedList();
@@ -53,6 +64,7 @@ void main(){
   linkedList.insertAtBeginning(7);
   linkedList.insertAtBeginning(100);
   linkedList.insertAtEnd(55);
+  linkedList.printList();
   Node? mid = linkedList.midinList();
   print('Mid: ${mid!.data}');
 }
