@@ -35,6 +35,28 @@ class Stack<T> {
     }
   }
 
+  T? middle(){
+    var slow = _top;
+    var fast = _top;
+    while (fast!=null && fast.next!=null) {
+      slow = slow!.next;
+      fast = fast.next!.next;
+    }
+    return slow?.value;
+  }
+  void delete(T value){
+   
+    var current = _top;
+    Node<T>? previous;
+
+    while (current != null && current.value !=value) {
+      previous = current;
+      current = current.next;
+    }
+    
+    previous!.next = current!.next;
+  }
+
 }
 void main(){
   var stack = Stack<int>();
@@ -50,4 +72,7 @@ void main(){
   print('\n');
   stack.peek();
   stack.display();
+ print('mid = ${ stack.middle()}');
+ stack.delete(10);
+ stack.display();
 }
